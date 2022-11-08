@@ -1,8 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
   padding: 2rem;
+  width: 200px;
+  height: 100vh;
   text-align: center;
+  box-shadow: 1px 2px 2px 0 #0c0c0c;
+  background: #161515;
 }
 
 .logo {
@@ -44,3 +46,17 @@
   display: flex;
   gap: 2px;
 }
+
+.rootdirectory:hover {
+  background: black;
+  cursor: pointer;
+}
+
+.diricon {
+  color: yellow;
+}
+
+.diricon:hover {
+  cursor: pointer;
+}
+

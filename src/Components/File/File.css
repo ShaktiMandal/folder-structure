@@ -3,3 +3,11 @@
     flex-direction: row;
     gap: 2px;
 }
+
+.folderIcon {
+    color: yellow
+}
+
+.folderIcon:hover {
+    cursor: pointer;
+}

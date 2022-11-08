@@ -1,25 +1,29 @@
-import react from 'react';
-import Directories from '../Directories/Directories';
-import './File.css';
+import react, { useState } from "react";
+import Directories from "../Directories/Directories";
+import "./File.css";
 
-const File = ( files: any) => {
-    const { child } = files;
-    const { name, isFolder, children } = child;
-    console.log("Print child", name)
-    return (
-        <div className="file">
-            <>
-                <div className="filedetails">
-                    { child.isFolder ?  <div className="folderIcon">🗀</div> : <div> 🗄️ </div>}
-                    <div className="fileName">
-                        { name }
-                    </div>
-                </div>
-            </> 
-            { isFolder &&  <Directories childrens={ children }/> }
+const File = (files: any) => {
+  const [isExpand, setExpand] = useState(true);
+  const { child } = files;
+  const { name, isFolder, children } = child;
+
+  return (
+    <div className="file">
+      <>
+        <div className="filedetails" onClick={() => setExpand(!isExpand)}>
+          {child.isFolder ? (
+            <div className="folderIcon">
+              {isExpand ? <span>📂</span> : <span>📁</span>}
+            </div>
+          ) : (
+            <div> 🗄️ </div>
+          )}
+          <div className="fileName">{name}</div>
         </div>
-    )
-}
-
+      </>
+      {isFolder && isExpand && <Directories childrens={children} />}
+    </div>
+  );
+};
 
 export default File;
