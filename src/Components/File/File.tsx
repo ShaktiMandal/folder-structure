@@ -1,19 +1,20 @@
 import react, { useState } from "react";
 import Directories from "../Directories/Directories";
 import "./File.css";
+import Icon from '../Icon/Icon';
 
 const File = (files: any) => {
-  const [isExpand, setExpand] = useState(true);
+  const [isExpanded, setExpand] = useState(true);
   const { child } = files;
   const { name, isFolder, children } = child;
 
   return (
     <div className="file">
       <>
-        <div className="filedetails" onClick={() => setExpand(!isExpand)}>
+        <div className="rootdirectory" onClick={() => setExpand(!isExpanded)}>
           {child.isFolder ? (
             <div className="folderIcon">
-              {isExpand ? <span>📂</span> : <span>📁</span>}
+              <Icon isExpanded={isExpanded}></Icon>
             </div>
           ) : (
             <div> 🗄️ </div>
@@ -21,7 +22,7 @@ const File = (files: any) => {
           <div className="fileName">{name}</div>
         </div>
       </>
-      {isFolder && isExpand && <Directories childrens={children} />}
+      {isFolder && isExpanded && <Directories childrens={children} />}
     </div>
   );
 };

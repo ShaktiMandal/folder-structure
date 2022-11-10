@@ -45,6 +45,7 @@
 .rootdirectory {
   display: flex;
   gap: 2px;
+  padding: 0px 5px 0 5px;
 }
 
 .rootdirectory:hover {
@@ -58,5 +59,10 @@
 
 .diricon:hover {
   cursor: pointer;
+}
+
+svg {
+  height: 10px;
+  width: 10px;
 }
 

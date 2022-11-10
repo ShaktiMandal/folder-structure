@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Directories from "./Components/Directories/Directories";
+import Icon from './Components/Icon/Icon';
 
 const files = {
   name: "root",
@@ -54,26 +55,18 @@ const files = {
 };
 
 function App() {
-  const [isExpand, setExpand] = useState(true);
+  const [isExpanded, setExpand] = useState<boolean>(true);
 
   return (
     <div className="App">
-      <div className="rootdirectory" onClick={() => setExpand(!isExpand)}>
+      <div className="rootdirectory" onClick={() => setExpand(!isExpanded)}>
         <div className="expander"></div>
         <div className="diricon">
-          {isExpand ? (
-            <span> 
-                <span color="white"> &gt; </span> 📂
-            </span>
-          ) : (
-            <span>
-              <span> &gt; </span> 📁
-            </span>
-          )}
+          <Icon isExpanded={isExpanded}></Icon>
         </div>
-        <div className="dirname"> {files.name} </div>
+        <div className="dirname"> {files.name}  </div>
       </div>
-      {files.isFolder && isExpand && <Directories childrens={files.children} />}
+      {files.isFolder && isExpanded && <Directories childrens={files.children} />}
     </div>
   );
 }

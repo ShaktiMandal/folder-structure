@@ -1,9 +1,3 @@
-.filedetails {
-    display: flex;
-    flex-direction: row;
-    gap: 2px;
-}
-
 .folderIcon {
     color: yellow
 }
